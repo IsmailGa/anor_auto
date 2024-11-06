@@ -1,0 +1,76 @@
+.reviews  {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews h1 {
+    max-width: 403px;
+    width: 100%;
+    font-size: 42px;
+    color: var(--white);
+}
+
+.reviews_buttons {
+    max-width: 220px;
+    width: 100%;
+}
+
+.reviews_buttons button {
+    border-radius: 50px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+}
+
+.reviews_buttons button:first-child {
+    background: transparent;
+    border: 1.5px solid var(--white);
+    margin-right: 20px;
+}
+
+/* 
+===
+
+REVIEW CARDS
+
+===
+*/
+
+
+.reviews_cards {
+    padding-top: 65px;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.reviews_card {
+    border-radius: 35px;
+    color: var(--white);
+    min-width: 423px;
+    height: 285px;
+    width: 100%;
+    padding: 35px 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #3A3E4320;
+    gap: 20px;
+}
+
+.reviews_card_text{
+    max-width: inherit;
+    font-size: 26px;
+}
+
+.reviews_card_author {
+    font-size: 26px;
+    font-weight: 400;
+    color: #9F9F9F;
+}

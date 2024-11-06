@@ -1,0 +1,17 @@
+.error_page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    flex-direction: column;
+}
+
+.error_page a {
+    color: #858585;
+    transition: .2s ease;
+}
+
+.error_page a:hover {
+    color: var(--white);
+}

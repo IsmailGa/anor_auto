@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import "./App.css";
+import Preloader from "./components/Pre/Pre";
+import ScrollToTop from "./components/ScrollToTop";
+import Admin from "./admin/Admin";
+import LanguageLayout from "./pages/LanguageLayout/LanguageLayout";
+import { useLanguage } from "./pages/LanguageContext";
+import {Error} from "./pages/404/Error";
 
 function App() {
+  const location = useLocation();
+  const {lang} = useLanguage();
+  const [load, updateLoad] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateLoad(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, [lang]);
+
+  useEffect(()=>{
+    updateLoad(true);
+  },[lang])
+
+  // Determine if the current path is an admin path
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Preloader load={load} />
+      <ScrollToTop />
+      {/* {!isAdminRoute && <Header />} */}
+      <Routes>
+        <Route path="admin/*" element={<Admin />}/>
+        <Route path="admin" element={<Navigate to="/admin/panel" replace/>}/>
+        {/* {/* <Route path="service" element={<Service />} />
+        <Route path="product/:id" element={<Product />}/>
+        <Route exact path="/" element={<Home />} />
+        <Route path="products/*" element={<Products />} /> */}
+        <Route path="404" element={<Error />} />
+        <Route path="/*" element={<LanguageLayout/>}/>
+        {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
+      </Routes>
+      {/* {!isAdminRoute && <Footer />} */}
+    </>
   );
 }
 

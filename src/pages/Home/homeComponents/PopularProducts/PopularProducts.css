@@ -1,0 +1,41 @@
+:root {
+    --red: #9D0208;
+}
+
+.p_products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px;
+    width: 100%;
+}
+
+.p_products h1 {
+    color: var(--white);
+    font-size: 36px;
+    max-width: 332px;
+    width: 100%;
+}
+
+.p_products_button {
+    outline: none;
+    color: var(--white);
+    padding: 0 25px;
+    height: 50px;
+    font-size: 18px;
+    border: 1.5px solid var(--white);
+    background: transparent;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+===
+
+CARDS
+
+===
+*/

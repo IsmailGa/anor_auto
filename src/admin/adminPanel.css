@@ -1,0 +1,209 @@
+
+
+/* ADMIN PANEL */
+
+
+
+.admin_panel h1 {
+    text-align: center;
+    padding: 10px 0;
+    font-family: Onest !important;
+}
+
+.admin_panel .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.admin_panel * {
+    font-family: Onest !important;
+}
+
+.admin_panel {
+    padding-top: 20px;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    background: #1C1E20;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.admin_panel .wrapper {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #141414;
+    border-radius: 35px;
+}
+
+
+.admin_form {
+    width: 100%;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    
+}
+
+
+.admin_form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    max-width: 750px;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.admin_form input {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: var(--field-padding);
+    border-radius: 10px;
+    height: 50px;
+    outline: none;
+    font-size: 20px;
+    padding-left: 10px;
+    color: #000;
+}
+
+.stock_check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.stock_check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.stock_check:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.stock_check input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.stock_check input:checked~.checkmark:after {
+    display: block;
+}
+
+.stock_check .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.admin_category {
+    max-width: inherit;
+    height: 50px;
+    font-size: 18px;
+}
+
+.img_input {
+    display: flex;
+    max-height: 200px;
+    max-width: 200px !important;
+    width: 100%;
+}
+
+.img_input input{
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.upload_icon {
+    max-width: 30px;
+    max-height: 30px;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.action_btns {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.btn_add {
+    height: 50px;
+    max-width: 350px;
+    width: 100%;
+    border: 1.5px solid #3a3e4340;
+    border-radius: 35px;
+    outline: none;
+    background: var(--white);
+}
+
+
+.btn_add {
+    background: #04AA6D;
+}
+
+.btn_add:focus{
+    background: #038d5a;
+}
+
+.btn_delete {
+    background: #f44336;
+}
+
+.btn_delete:focus {
+    background: #ab2d24;
+}
+
+.btn_clear {
+    background: var(--white);
+}

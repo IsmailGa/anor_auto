@@ -1,0 +1,27 @@
+.location {
+   
+    margin-top: 80px;
+    padding: 0 5px 15px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background: #3A3E4340;
+}
+
+.location iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+
+.location a{
+    font-family: "Onest" !important;
+    color: var(--white);
+}
+
+.location a:hover{
+    color: rgba(255, 255, 255, 0.522);
+}

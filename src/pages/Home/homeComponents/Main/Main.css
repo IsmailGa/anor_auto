@@ -1,0 +1,187 @@
+.main {
+    width: 100%;
+}
+
+
+/* 
+===
+
+CARDS
+
+===
+*/
+
+.main_cards {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+    flex: 1;
+    max-width: 100%;
+    height: 725px;
+    border-radius: 35px;
+    background: url("/src/assets/anor-auto-main.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--white);
+    overflow: hidden; /* Ensures the overlay stays within the card */
+}
+
+.main_card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.main_card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1d1e218a; 
+    z-index: 0; 
+}
+
+.main_card_title {
+    max-width: 564px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 60px;
+   
+    color: var(--white);
+}
+
+.main_card_subtitle {
+    line-height: 25px;
+    margin-top: 25px;
+    max-width: 564px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.main_button {
+    font-family: Archivo;
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: #9D0208;
+    color: var(--white);
+    max-width: fit-content;
+    height: 55px;
+    padding: 0 22px;
+    gap: 15px;
+}
+
+.main_button svg {
+    font-size: 30px;
+}
+
+
+/* 
+===
+
+MAIN CARD OTHERS
+
+===
+*/
+.main_card-sec {
+    background-image: none;
+    max-width: 200px;
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main_card_links { 
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main_card_link {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.main_card_link a{
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_card_link svg {
+    margin-left: 7px;
+    font-size: 25px;
+}
+
+
+
+.main_card-sec h2 {
+    max-width: 161px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.main_card_button {
+    border: none;
+    font-weight: normal;
+    color: var(--black) !important;
+    background: var(--white);
+    outline: none;
+    max-width: 160px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 1040px) {
+    .main_cards {
+        width: 100%;
+        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr ;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main_card {
+        display: flex;
+        flex-direction: column;
+        padding: 45px;
+        width: 100%;
+        min-width: 0;
+        height: 725px;
+    }
+    .main_card-sec {
+        display: none;
+    } 
+}
