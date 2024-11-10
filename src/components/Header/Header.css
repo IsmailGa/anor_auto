@@ -392,24 +392,23 @@ SEARCH
 }
 
 @media (max-width: 500px) {
-
     .header {
         height: 100%;
         display: flex;
         flex-direction: column;
+        height: 120px;
         padding: 0;
         margin-bottom: 20px;
         background: #3a3e4320;
-
     }
 
     .header nav {
-        border-radius: 0;
-        height: 100%;
-        display: flex;
+        border-radius: 0 !important;
+        display: flex !important;
         flex-direction: column;
-        background: none;
+        background: transparent !important;
     }
+    
 
     .search {
         top: 18%;

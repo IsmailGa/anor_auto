@@ -45,12 +45,12 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (!input) {
+    document.body.style.overflow = input ? "hidden" : "visible";
+    return () => {
       document.body.style.overflow = "visible";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
+    };
   }, [input]);
+  
 
   const filteredData = products.filter((product) => {
     const lowerInput = input.toLowerCase();
@@ -93,7 +93,6 @@ export const Header = () => {
             {navLinks[lang].map(({ href, label }) => (
               <Link
                 key={href}
-                to={href}
                 className={`nav_link ${
                   location.pathname === href ? "active" : ""
                 }`}
@@ -102,7 +101,10 @@ export const Header = () => {
                     ? { fontFamily: "Onest" }
                     : { fontFamily: "Archivo" }
                 }
-                onClick={()=> setIsOpen(!isOpen)}
+                onClick={() => { 
+                  setIsOpen(false);
+                  navigate(href); 
+                }}
               >
                 {label}
               </Link>
