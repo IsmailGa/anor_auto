@@ -189,11 +189,26 @@ MAIN CARD OTHERS
 }
 
 @media (max-width: 600px) {
-    .main_card_title {
-        font-size: 40px;
+    .main_card {
+        height: 500px;
     }
 
-    .main_card_subtitle{
+    .main_card_title {
+        font-size: 25px;
+    }
+
+    .main_card_subtitle {
+        display: none;
+    }
+
+    .main_button {
         font-size: 15px;
+        height: 100px;
+    }
+
+    .main_button svg {
+        font-size: 100px;
+        width: 150px;
+        height: 200px;
     }
 }

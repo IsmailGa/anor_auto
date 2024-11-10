@@ -91,7 +91,7 @@ export const Header = () => {
             </div>
 
             {navLinks[lang].map(({ href, label }) => (
-              <Link
+              <div
                 key={href}
                 className={`nav_link ${
                   location.pathname === href ? "active" : ""
@@ -103,11 +103,12 @@ export const Header = () => {
                 }
                 onClick={() => { 
                   setIsOpen(false);
-                  navigate(href); 
+                  navigate(href);
+               
                 }}
               >
                 {label}
-              </Link>
+              </div>
             ))}
 
             <div className="lang_switchers">

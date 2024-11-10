@@ -6,13 +6,9 @@ export const SeasonProducts = () => {
   return (
     // p_products == popular_products
     <div className="p_products">
+      
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          width: "100%",
-        }}
+      className="p_products_actions"
       >
         <h1>Most popular products</h1>
         <NavLink to="/products/sales" className="p_products_button">

@@ -14,13 +14,13 @@ export const Home = () => {
 
   return (
     <section className="home" >
-      <div className="container" >
+      <div className="container">
         <Main />
         <Catalog />
         <PopularProducts />
         <SeasonProducts />
         <Partners />
-        <Reviews />
+        {/* <Reviews /> */}
         <MapLocation />
       </div>
     </section>

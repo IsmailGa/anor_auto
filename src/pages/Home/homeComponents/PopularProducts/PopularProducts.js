@@ -30,12 +30,8 @@ export const PopularProducts = () => {
     // p_products == popular_products
     <div className="p_products">
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          width: "100%",
-        }}
+      className="p_products_actions"
+        
       >
         <h1
           style={
@@ -44,15 +40,17 @@ export const PopularProducts = () => {
         >
           {lang === "en" ? "Most popular products" : "Популярные продукты"}
         </h1>
-        <NavLink
-          to="/products/all"
+        <button
+          onClick={() => {
+            navigate("/products/all")
+          }}
           className="p_products_button"
           style={
             lang === "ru" ? { fontFamily: "Onest" } : { fontFamily: "Archivo" }
           }
         >
           {lang === "en" ? "View all" : "Посмотреть все"}
-        </NavLink>
+        </button>
       </div>
       <div className="products_cards">
         {products.map((product, index) => (
