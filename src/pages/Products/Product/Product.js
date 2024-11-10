@@ -50,8 +50,40 @@ function Product() {
         <div className="product_content">
           <img src={product.image_url} alt="pic" />
           <div className="product_info">
-            <h1>{product.name_en}</h1>
-            <p>{product.description_en}</p>
+            <h1
+              style={
+                lang === "ru"
+                  ? { fontFamily: "Onest" }
+                  : { fontFamily: "Archivo" }
+              }
+            >
+              {lang === "en" ? product.name_en : product.name_ru}
+            </h1>
+            <div
+              className={product.status ? "status" : "status non-status"}
+              style={
+                lang === "ru"
+                  ? { fontFamily: "Onest" }
+                  : { fontFamily: "Archivo" }
+              }
+            >
+              {lang == "en"
+                ? product.status
+                  ? "In Stock"
+                  : "Out of Stock"
+                : product.status
+                ? "В наличии"
+                : "Не в наличии"}
+            </div>
+            <p
+              style={
+                lang === "ru"
+                  ? { fontFamily: "Onest" }
+                  : { fontFamily: "Archivo" }
+              }
+            >
+              {lang === "en" ? product.description_en : product.description_ru}
+            </p>
           </div>
           <div className="product_price">
             <p>{product.price} UZS</p>

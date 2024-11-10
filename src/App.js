@@ -26,8 +26,6 @@ function App() {
     updateLoad(true);
   },[lang])
 
-  // Determine if the current path is an admin path
-
   return (
     <>
       <Preloader load={load} />

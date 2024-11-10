@@ -32,7 +32,6 @@ export const Header = () => {
     ],
   };
 
-  // Fetch products only once when the component mounts
   useEffect(() => {
     const fetchProducts = async () => {
       try {

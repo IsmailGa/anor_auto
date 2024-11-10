@@ -296,14 +296,26 @@ SEARCH
 
 .lang_switchers {
     display: flex;
-    gap: 10px;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 10px;
     width: 100px;
 }
 
 .lang_switchers button {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--white);
     max-width: 50px;
     width: 100%;
+    border-radius: 10px;
 }
+
+.lang_switchers button:hover{
+    background: #FFFFFF70;
+}
+
 
 
 

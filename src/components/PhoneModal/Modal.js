@@ -4,8 +4,7 @@ import { useLanguage } from "../../pages/LanguageContext";
 import "./Modal.css";
 
 export default function Modal({ show, onClose }) {
-
-  const {lang} = useLanguage()
+  const { lang } = useLanguage();
   useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden";
@@ -27,7 +26,7 @@ export default function Modal({ show, onClose }) {
           <p
             style={
               lang === "ru"
-                ? { fontFamily: "Onest" , fontSize: '20px'}
+                ? { fontFamily: "Onest", fontSize: "20px" }
                 : { fontFamily: "Archivo" }
             }
           >
@@ -49,7 +48,16 @@ export default function Modal({ show, onClose }) {
             </a>
           </li>
         </ul>
-        <button onClick={onClose}>Close</button>
+        <button
+          onClick={onClose}
+          style={
+            lang === "ru"
+              ? { fontFamily: "Onest", fontSize: "20px" }
+              : { fontFamily: "Archivo" }
+          }
+          >
+          {lang == "en" ? "Close" : "Закрыть"}
+        </button>
       </div>
     </div>
   );

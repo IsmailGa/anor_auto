@@ -1,7 +1,10 @@
 import React from "react";
+import { useLanguage } from "../../../LanguageContext";
 import "./Location.css";
 
 export const MapLocation = () => {
+  const { lang } = useLanguage();
+
   return (
     <div className="location">
       <iframe
@@ -10,9 +13,14 @@ export const MapLocation = () => {
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
-      <a href="https://maps.app.goo.gl/DDPGcXxvikCNbbb57">
-        Click {"->"}{" "}
-        66P7+GRM 9 уй, Янги Сегели кучаси, 100012, Tashkent, Uzbekistan
+      <a
+        href="https://maps.app.goo.gl/Ug6wp4VEt9BSYrdXA"
+        style={
+          lang === "ru" ? { fontFamily: "Onest" } : { fontFamily: "Archivo" }
+        }
+      >
+        {lang === "en" ? "Click" : "Нажать"} {"->"} 66P7+GRM 9 уй, Янги Сегели
+        кучаси, 100012, Tashkent, Uzbekistan
       </a>
     </div>
   );

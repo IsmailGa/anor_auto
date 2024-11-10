@@ -17,15 +17,15 @@ export const AllProducts = ({ products }) => {
 
   if (!products) {
     <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      } &&
-      lang === "ru"
-      ? { fontFamily: "Onest" }
-      : { fontFamily: "Archivo" }
-    }
+      style={
+        {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        } && lang === "ru"
+          ? { fontFamily: "Onest" }
+          : { fontFamily: "Archivo" }
+      }
     >
       {lang === "en" ? "Loading products..." : "Загружаем продукты..."}
     </div>;
@@ -41,7 +41,16 @@ export const AllProducts = ({ products }) => {
               <p className="price">
                 {product.price.toLocaleString()} <span>uzs</span>
               </p>
-              <p className="products_name">{product.name_en}</p>
+              <p
+                className="products_name"
+                style={
+                  lang === "ru"
+                    ? { fontFamily: "Onest" }
+                    : { fontFamily: "Archivo" }  
+                }
+              >
+                {lang === "en" ? product.name_en : product.name_ru}
+              </p>
               <button
                 onClick={() => handleClick(product.id)}
                 style={

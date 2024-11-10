@@ -7,14 +7,14 @@
     --transition-speed: 0.2s;
 }
 
-/* Products Section */
+
 .products {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Products Title */
+
 .products_title {
     font-weight: 400;
     font-size: 42px;
@@ -22,14 +22,13 @@
     margin-bottom: 20px;
 }
 
-/* Products Options (Buttons Container) */
+
 .products_options {
     display: flex;
     gap: 20px;
     padding-bottom: 35px; 
 }
 
-/* Buttons */
 .products_options .button {
     border: var(--button-border);
     outline: none;
@@ -48,7 +47,6 @@
     background: #5e5e5e;
 }
 
-/* Active Button */
 .products_options .button.active {
     background: var(--white);
     color: var(--black) !important;
@@ -62,7 +60,7 @@
 .products_cards {
     padding-top: 55px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ensure equal width for 4 columns */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 15px;
 }
 
@@ -134,31 +132,27 @@
 }
 
 
-/* For screen sizes less than 1363px */
 @media (max-width: 1363px) {
     .products_cards {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        grid-template-columns: repeat(3, 1fr); 
     }
     .products_card { 
-        max-width: 400px; /* Max width of cards */
+        max-width: 400px;
     }
 }
 
-/* For screen sizes less than 1040px */
-@media (max-width: 1363px) {
+@media (max-width: 1030px) {
     .products_cards {
-        grid-template-columns: repeat(2, 1fr); /* 3 columns */
+        grid-template-columns: repeat(2, 1fr); 
     }
     .products_card {
-        /* Remove max-width or increase it */
-        max-width: none; /* Allow the cards to grow */
-        width: 100%; /* Ensure the cards take full width of their grid cell */
+        max-width: none;
+        width: 100%; 
     }
 }
 
-/* For screen sizes less than 700px */
 @media (max-width: 700px) {
     .products_cards {
-        grid-template-columns: 1fr; /* 1 column */
+        grid-template-columns: 1fr;
     }
 }

@@ -14,7 +14,7 @@ function AdminPanel({ pr }) {
   const [state, setState] = useState("");
   const [isUploaded, setIsUploaded] = useState(false);
   const [newProduct, setNewProduct] = useState({
-    id: null, // для редактирования
+    id: null,
     name_en: "",
     name_ru: "",
     category: "",
@@ -30,13 +30,13 @@ function AdminPanel({ pr }) {
     updated_at: new Date(),
   });
   const [imageUrl, setImageUrl] = useState("");
-  const [newImage, setNewImage] = useState(null); // Track new image selection
+  const [newImage, setNewImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const token = localStorage.getItem("token"); // Получаем токен из localStorage
+  const token = localStorage.getItem("token");
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`, // Отправляем токен с запросом
+      Authorization: `Bearer ${token}`,
     },
   };
 
@@ -44,7 +44,6 @@ function AdminPanel({ pr }) {
   const DEFAULT_IMAGE_URL =
     "https://firebasestorage.googleapis.com/v0/b/anor-auto.appspot.com/o/products%2FdefaultImage.png?alt=media&token=62ca506a-02b1-4716-83ac-55bec99f4b6f";
 
-  // Fetch all products from server
   useEffect(() => {
     axios
       .get("http://localhost:6060/api/products", config)
@@ -58,13 +57,11 @@ function AdminPanel({ pr }) {
     }
   }, [location.state]);
 
-  // Handle form input change
   const handleInputChange = (e) => {
     setErrorDel(false);
     setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
   };
 
-  // Handle image upload to Firebase
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -75,7 +72,6 @@ function AdminPanel({ pr }) {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        // Progress logic (optional)
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
@@ -90,19 +86,17 @@ function AdminPanel({ pr }) {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          setImageUrl(url); // Set the uploaded image URL
+          setImageUrl(url);
           setNewProduct({ ...newProduct, image_url: url });
         });
       }
     );
   };
 
-  // Submit new or edited product to server
   const handleAddOrUpdateProduct = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      // Use the default image URL if no new image has been uploaded
       const finalImageUrl = newProduct.image_url || DEFAULT_IMAGE_URL;
 
       if (newImage) {
@@ -142,17 +136,19 @@ function AdminPanel({ pr }) {
         size: "",
         weight: "",
         description_en: "",
-        description_ru: ""
+        description_ru: "",
       });
       setImageUrl("");
     } catch (error) {
-      console.error("Error adding or updating product:", error.response ? error.response.data : error.message);
+      console.error(
+        "Error adding or updating product:",
+        error.response ? error.response.data : error.message
+      );
     } finally {
       setLoading(false);
     }
   };
 
-  // Handle deleting product
   const handleDeleteProduct = async (id) => {
     try {
       if (!id) {
@@ -172,7 +168,7 @@ function AdminPanel({ pr }) {
         size: "",
         weight: "",
         description_en: "",
-        description_ru: ""
+        description_ru: "",
       });
     } catch (error) {
       console.log("Deleting product ID:", id);
@@ -194,7 +190,7 @@ function AdminPanel({ pr }) {
         size: "",
         weight: "",
         description_en: "",
-        description_ru: ""
+        description_ru: "",
       });
       setState("");
     } catch (error) {
