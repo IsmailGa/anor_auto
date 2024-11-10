@@ -16,7 +16,7 @@ body {
 }
 
 
-*{
+*, ::after, ::before{
   list-style: none;
   text-decoration: none;
   margin: 0;

@@ -11,6 +11,7 @@
 
 
 .footer_wrapper {
+    width: 100%;
     padding-top: 65px;
     padding-bottom: 95px;
     display: flex;
@@ -82,4 +83,12 @@ FOOTER LINKS
     color: #858585;
     max-width: 323px;
     width: 100%;
+}
+
+@media (max-width: 700px) {
+    .footer_links{
+        padding-top: 20px;
+        flex-direction: column;
+    }
+    
 }

@@ -11,16 +11,15 @@ function AdminProduct() {
     axios
       .get(`http://localhost:6060/api/products/${id}`)
       .then((res) => {
-        console.log("API Response:", res.data); // Log response data to check format
-        setProduct(res.data); // Assuming res.data is the product object
+        console.log("API Response:", res.data);
+        setProduct(res.data);
       })
       .catch((err) => {
         console.error("Error fetching product:", err);
-        setProduct(null); // Handle error by setting product to null
+        setProduct(null); 
       });
   }, [id]);
 
-  // Render "Loading..." while product data is being fetched
   if (!product) {
     return <p>Loading...</p>;
   }
