@@ -155,4 +155,13 @@
     .products_cards {
         grid-template-columns: 1fr;
     }
+    .products_options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .products_options .button{
+        max-width: 300px;
+        width: 100%;
+    }
 }
