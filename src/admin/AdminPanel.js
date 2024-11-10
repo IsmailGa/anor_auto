@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase/config"; // Your Firebase configuration
+import { storage } from "../firebase/config"; 
 import "./adminPanel.css";
 import { Upload } from "../components/Icons/Icons";
 
