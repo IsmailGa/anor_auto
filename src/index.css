@@ -11,12 +11,14 @@
 }
 
 body {
- background-color: #141618 ;
+  background-color: #141618;
 
 }
 
 
-*, ::after, ::before{
+*,
+::after,
+::before {
   list-style: none;
   text-decoration: none;
   margin: 0;
@@ -30,4 +32,10 @@ body {
   width: 100%;
   padding: 0 65px;
   margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+  }
 }
