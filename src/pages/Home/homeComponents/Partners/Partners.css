@@ -13,6 +13,31 @@
     color: var(--white);
 }
 
+.partners_brands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+.partners_brands img{
+    box-shadow: 0 0 20px 0px black;
+    width: 128px;
+    height: 100%;
+    z-index: 1000;
+    transition: 1s;
+}
+
+.partners_brands img:hover{
+    transform: scale(1.1);
+
+}
+
 .partners img {
     padding-top: 33px;
 }

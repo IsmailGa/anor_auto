@@ -78,8 +78,9 @@
     }
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 551px) {
     .catalog_cards ul{
-        max-height: 150px;
+       display: none;
     }
 }
+

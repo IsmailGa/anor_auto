@@ -31,7 +31,7 @@ export const Catalog = () => {
                 : { fontFamily: "Archivo" }
             }
           >
-            {lang === "en" ? "Truck Category" : "Грузовые Категории"}
+            {lang === "en" ? "Truck Category" : "Категория грузовиков"}
           </h3>
           <ul>
             {categories.map(({ key, en, ru }) => (

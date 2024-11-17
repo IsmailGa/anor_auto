@@ -1,5 +1,4 @@
 .location {
-   
     margin-top: 80px;
     padding: 0 5px 15px;
     gap: 30px;
@@ -24,4 +23,10 @@
 
 .location a:hover{
     color: rgba(255, 255, 255, 0.522);
+}
+
+@media (max-width: 350px) {
+    .location iframe {
+        height: 300px;
+    }
 }

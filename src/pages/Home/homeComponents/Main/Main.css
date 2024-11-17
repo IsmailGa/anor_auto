@@ -207,15 +207,33 @@ MAIN CARD OTHERS
     }
 
     .main_button svg {
-        font-size: 100px;
-        width: 100px;
-        height: 100px;
+        font-size: 50px;
     }
 }
 
 @media (max-width: 490px) {
+
+    .main_card {
+        padding: 20px;
+    }
+
     .main_button {
         font-size: 15px;
-        height: 70px;
+        height: 50px;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .main_card_title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 350px) {
+    .main_card_title {
+        font-size: 30px;
+    }
+    .main_card{
+        height: 400px;
     }
 }
