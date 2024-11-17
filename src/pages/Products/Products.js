@@ -1,5 +1,4 @@
-// src/pages/Products/Products.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { NavLink, Routes, Route, Navigate } from "react-router-dom";
 import { AllProducts } from "./AllProducts/AllProducts.js";
@@ -15,83 +14,70 @@ import { useLanguage } from "../LanguageContext.js";
 export const Products = () => {
   const { lang } = useLanguage();
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const titleStyle = { fontFamily: lang === "ru" ? "Onest" : "Archivo" };
+
   useEffect(() => {
     setIsLoading(true);
     axios
       .get("http://localhost:6060/api/products/")
       .then((res) => {
         setProducts(res.data);
-        const uniqueCategories = [
-          ...new Set(res.data.map((item) => item.category)),
-        ];
-        setCategory(uniqueCategories);
         setIsLoading(false);
       })
       .catch((err) => {
+        console.error(err);
         setIsLoading(false);
-        console.log(err);
       });
   }, []);
+
+  const categories = useMemo(
+    () => [
+      { key: "oils", en: "Oils", ru: "Масла" },
+      { key: "tires", en: "Tires", ru: "Шины" },
+      { key: "filters", en: "Filters", ru: "Фильтры" },
+      { key: "bearings", en: "Bearings", ru: "Подшипники" },
+      { key: "battery", en: "Battery", ru: "Аккумуляторы" },
+      { key: "other", en: "Other", ru: "Прочее" },
+    ],
+    []
+  );
+
+  const navLinks = useMemo(
+    () => [
+      { to: "all", label: lang === "en" ? "All Products" : "Все Продукты" },
+      { to: "sales", label: lang === "en" ? "Sales" : "Акции" },
+      { to: "new", label: lang === "en" ? "New Products" : "Новые" },
+    ],
+    [lang]
+  );
+  const langStyle = { fontFamily: lang === "ru" ? "Onest" : "Archivo" };
 
   return (
     <section className="products">
       <div className="container">
-        <h1
-          className="products_title"
-          style={
-            lang === "ru" ? { fontFamily: "Onest" } : { fontFamily: "Archivo" }
-          }
-        >
+        <h1 className="products_title" style={titleStyle}>
           {lang === "en" ? "Products" : "Продукты"}
         </h1>
         <div className="products_options">
-          <NavLink
-            to="all"
-            className={({ isActive }) =>
-              isActive ? "button active" : "button"
-            }
-            style={
-              lang === "ru"
-                ? { fontFamily: "Onest" }
-                : { fontFamily: "Archivo" }
-            }
-          >
-           {lang === "en" ? "All Products" : "Все Продукты"} 
-          </NavLink>
-          <NavLink
-            to="sales"
-            className={({ isActive }) =>
-              isActive ? "button active" : "button"
-            }
-            style={
-              lang === "ru"
-                ? { fontFamily: "Onest" }
-                : { fontFamily: "Archivo" }
-            }
-          >
-            {lang === "en" ? "Sales" : "Продажи"} 
-          </NavLink>
-          <NavLink
-            to="new"
-            className={({ isActive }) =>
-              isActive ? "button active" : "button"
-            }
-            style={
-              lang === "ru"
-                ? { fontFamily: "Onest" }
-                : { fontFamily: "Archivo" }
-            }
-          >
-            {lang === "en" ? "New Products" : "Новые"}
-          </NavLink>
+          {navLinks.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                isActive ? "button active" : "button"
+              }
+              style={titleStyle}
+            >
+              {label}
+            </NavLink>
+          ))}
         </div>
         <ul className="category_links">
-          {category.map((item) => (
-            <li>
-              <NavLink to={`category/${item.toLowerCase()}`}>
-                - {item.toUpperCase()}
+          {categories.map(({ key, en, ru }) => (
+            <li key={key}>
+              <NavLink to={`category/${key}`} style={langStyle}>
+                {lang === "en" ? en : ru}
               </NavLink>
             </li>
           ))}
@@ -107,7 +93,6 @@ export const Products = () => {
             />
             <Route path="sales" element={<SalesProducts />} />
             <Route path="new" element={<NewProducts />} />
-            {/* Add a fallback route for 404 if needed */}
             <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
         </div>

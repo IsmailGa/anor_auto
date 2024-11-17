@@ -125,10 +125,15 @@
     flex-direction: column;
     width: 100%;
     gap: 10px;
+    font-size: 20px;
 }
 
 .category_links a{
-    color: var(--white);
+    color: #ffffff40;
+}
+
+.category_links a:hover{
+    color: #ffffff;
 }
 
 

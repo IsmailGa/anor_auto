@@ -7,7 +7,7 @@
     padding-top: 80px;
 }
 
-.catalog .ru > *{
+.catalog .ru>* {
     font-family: Onest !important;
 }
 
@@ -54,7 +54,7 @@
     color: var(--white);
 }
 
-.catalog_button{
+.catalog_button {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,5 +75,11 @@
         grid-template-columns: 1fr;
         width: 100%;
         gap: 10px;
+    }
+}
+
+@media (max-width: 1040px) {
+    .catalog_cards ul{
+        max-height: 150px;
     }
 }

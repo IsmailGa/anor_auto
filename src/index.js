@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { LanguageProvider } from "./pages/LanguageContext";
 import reportWebVitals from "./reportWebVitals";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <LanguageProvider>

@@ -194,7 +194,7 @@ MAIN CARD OTHERS
     }
 
     .main_card_title {
-        font-size: 25px;
+        font-size: 45px;
     }
 
     .main_card_subtitle {
@@ -203,12 +203,19 @@ MAIN CARD OTHERS
 
     .main_button {
         font-size: 15px;
-        height: 100px;
+        height: 50px;
     }
 
     .main_button svg {
         font-size: 100px;
-        width: 150px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 490px) {
+    .main_button {
+        font-size: 15px;
+        height: 70px;
     }
 }

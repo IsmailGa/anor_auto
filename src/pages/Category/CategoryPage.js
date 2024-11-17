@@ -9,7 +9,7 @@ export const CategoryPage = ({products}) => {
   const handleClick = (id) => {
     navigate("/product/" + id);
   };
-  // Filter products based on category URL parameter
+  
   const filteredProducts = products.filter(
     (item) => category ? item.category.toLowerCase() === category.toLowerCase() : true
   );

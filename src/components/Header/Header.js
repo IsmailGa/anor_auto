@@ -50,7 +50,6 @@ export const Header = () => {
       document.body.style.overflow = "visible";
     };
   }, [input]);
-  
 
   const filteredData = products.filter((product) => {
     const lowerInput = input.toLowerCase();
@@ -81,13 +80,16 @@ export const Header = () => {
           <div className="burger_menu">
             <RxHamburgerMenu
               className="header_icon burger_icon"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setIsOpenSearch(false);
+              }}
             />
           </div>
 
           <div className={isOpen ? "nav_links open" : "nav_links"}>
             <div className="close_icon" onClick={() => setIsOpen(!isOpen)}>
-            <AiOutlineClose />
+              <AiOutlineClose />
             </div>
 
             {navLinks[lang].map(({ href, label }) => (
@@ -101,10 +103,9 @@ export const Header = () => {
                     ? { fontFamily: "Onest" }
                     : { fontFamily: "Archivo" }
                 }
-                onClick={() => { 
+                onClick={() => {
                   setIsOpen(false);
                   navigate(href);
-               
                 }}
               >
                 {label}

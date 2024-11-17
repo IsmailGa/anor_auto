@@ -71,7 +71,7 @@ export const Main = () => {
           >
             {lang === "en"
               ? "Browse Truck Parts"
-              : "Посмотреть запчасти для грузовиков"}{" "}
+              : "Посмотреть запчасти"}{" "}
             <ArrowRight />
           </NavLink>
         </div>

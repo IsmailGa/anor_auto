@@ -7,11 +7,8 @@ import { Home } from "../Home/Home";
 import { Service } from "../Service/Service";
 import Product from "../Products/Product/Product";
 import { Products } from "../Products/Products";
-import { useLanguage } from "../LanguageContext";
 
 const LanguageLayout = () => {
-  const { lang, setLang } = useLanguage();
-  
   return (
     <>
       <Header />

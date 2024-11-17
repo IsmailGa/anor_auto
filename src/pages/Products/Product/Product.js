@@ -10,23 +10,20 @@ function Product() {
   const [isShow, setIsShow] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const [product, setProduct] = useState(null); // Initially null to show "Loading..."
+  const [product, setProduct] = useState(null);
   const { lang } = useLanguage();
+  const titleStyle = { fontFamily: lang === "ru" ? "Onest" : "Archivo" };
 
   useEffect(() => {
     axios
       .get(`http://localhost:6060/api/products/${id}`)
-      .then((res) => {
-        console.log("API Response:", res.data); // Log response data to check format
-        setProduct(res.data); // Assuming res.data is the product object
-      })
+      .then((res) => setProduct(res.data))
       .catch((err) => {
         console.error("Error fetching product:", err);
-        setProduct(null); // Handle error by setting product to null
+        setProduct(null);
       });
   }, [id]);
 
-  // Render "Loading..." while product data is being fetched
   if (!product) {
     return (
       <div className="container">
@@ -35,66 +32,31 @@ function Product() {
     );
   }
 
+  const productName = lang === "en" ? product.name_en : product.name_ru;
+  const productDescription = lang === "en" ? product.description_en : product.description_ru;
+  const statusText = lang === "en"
+    ? product.status ? "In Stock" : "Out of Stock"
+    : product.status ? "В наличии" : "Не в наличии";
+
   return (
     <div className="product">
       <Modal show={isShow} onClose={() => setIsShow(false)} />
       <div className="container">
-        <button
-          onClick={() => navigate("/products")}
-          style={
-            lang === "ru" ? { fontFamily: "Onest" } : { fontFamily: "Archivo" }
-          }
-        >
+        <button onClick={() => navigate("/products")} style={titleStyle}>
           <ArrowLeftW /> {lang === "en" ? "Go back" : "Назад"}
         </button>
         <div className="product_content">
-          <img src={product.image_url} alt="pic" />
+          <img src={product.image_url} alt="product" />
           <div className="product_info">
-            <h1
-              style={
-                lang === "ru"
-                  ? { fontFamily: "Onest" }
-                  : { fontFamily: "Archivo" }
-              }
-            >
-              {lang === "en" ? product.name_en : product.name_ru}
-            </h1>
-            <div
-              className={product.status ? "status" : "status non-status"}
-              style={
-                lang === "ru"
-                  ? { fontFamily: "Onest" }
-                  : { fontFamily: "Archivo" }
-              }
-            >
-              {lang == "en"
-                ? product.status
-                  ? "In Stock"
-                  : "Out of Stock"
-                : product.status
-                ? "В наличии"
-                : "Не в наличии"}
+            <h1 style={titleStyle}>{productName}</h1>
+            <div className={product.status ? "status" : "status non-status"} style={titleStyle}>
+              {statusText}
             </div>
-            <p
-              style={
-                lang === "ru"
-                  ? { fontFamily: "Onest" }
-                  : { fontFamily: "Archivo" }
-              }
-            >
-              {lang === "en" ? product.description_en : product.description_ru}
-            </p>
+            <p style={titleStyle}>{productDescription}</p>
           </div>
           <div className="product_price">
             <p>{product.price} UZS</p>
-            <button
-              onClick={() => setIsShow(true)}
-              style={
-                lang === "ru"
-                  ? { fontFamily: "Onest" }
-                  : { fontFamily: "Archivo" }
-              }
-            >
+            <button onClick={() => setIsShow(true)} style={titleStyle}>
               {lang === "en" ? "Reach to us" : "Свяжитесь с нами"}
             </button>
           </div>
