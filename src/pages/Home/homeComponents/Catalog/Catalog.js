@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { ArrowRight } from "../../../../components/Icons/Icons";
@@ -6,6 +6,7 @@ import "./Catalog.css";
 import { useLanguage } from "../../../LanguageContext";
 
 export const Catalog = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { lang } = useLanguage();
 
   const categories = useMemo(
@@ -21,9 +22,9 @@ export const Catalog = () => {
   );
 
   return (
-    <div className="catalog">
-      <div className="catalog_cards">
-        <div className="catalog_card">
+    <div className="home_category">
+      <div className="home_category_cards">
+        <div className="home_category_card">
           <h3
             style={
               lang === "ru"
@@ -33,26 +34,40 @@ export const Catalog = () => {
           >
             {lang === "en" ? "Truck Category" : "Категория грузовиков"}
           </h3>
-          <ul>
-            {categories.map(({ key, en, ru }) => (
-              <>
-                <li>
-                  <NavLink
-                    to={`/products/category/${key}`}
-                    style={
-                      lang === "ru"
-                        ? { fontFamily: "Onest" }
-                        : { fontFamily: "Archivo" }
-                    }
-                  >
-                    - {lang == "en" ? en : ru}
-                  </NavLink>
-                </li>
-              </>
-            ))}
-          </ul>
+          <div className="home_category_action">
+            <button
+            className={isOpen ? "h_c_btn active" : "h_c_btn"}
+              onClick={() => setIsOpen(!isOpen)}
+              style={
+                lang === "ru"
+                  ? { fontFamily: "Onest" }
+                  : { fontFamily: "Archivo" }
+              }
+            >
+              {lang == "en" ? "Toggle all categories" : "Открыть все категории"}
+            </button>
+            <ul className={isOpen ? "category_links open" : "category_links"}>
+              {categories.map(({ key, en, ru }) => (
+                <>
+                  <li>
+                    <NavLink
+                      to={`/products/category/${key}`}
+                      style={
+                        lang === "ru"
+                          ? { fontFamily: "Onest" }
+                          : { fontFamily: "Archivo" }
+                      }
+                    >
+                      {lang == "en" ? en : ru}
+                    </NavLink>
+                  </li>
+                </>
+              ))}
+            </ul>
+          </div>
+
           <NavLink
-            className="catalog_button"
+            className="home_category_button"
             to="/products"
             style={
               lang === "ru"

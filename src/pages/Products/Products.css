@@ -26,7 +26,7 @@
 .products_options {
     display: flex;
     gap: 20px;
-    padding-bottom: 35px; 
+    padding-bottom: 35px;
 }
 
 .products_options .button {
@@ -37,7 +37,7 @@
     background-color: transparent;
     color: var(--white);
     transition: background-color var(--transition-speed) ease-in, color var(--transition-speed) ease-in, transform var(--transition-speed) ease-in;
-    text-decoration: none; 
+    text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
@@ -60,7 +60,7 @@
 .products_cards {
     padding-top: 55px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
 
@@ -108,11 +108,11 @@
     background: var(--red) !important;
 }
 
-.products_cards button:hover{
+.products_cards button:hover {
     background: #a80208 !important;
 }
 
-.products_cards button:focus{
+.products_cards button:focus {
     background: #860206 !important;
 }
 
@@ -120,39 +120,51 @@
     font-size: 25px;
 }
 
-.category_links{
+.products_category_links {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 10px;
+    flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+.products_category_links.open {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
+
+.products_category_links a {
+    color: #ffffff40;
     font-size: 20px;
 }
 
-.category_links a{
-    color: #ffffff40;
-}
-
-.category_links a:hover{
+.products_category_links a:hover {
     color: #ffffff;
 }
 
 
 @media (max-width: 1363px) {
     .products_cards {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
-    .products_card { 
+
+    .products_card {
         max-width: 400px;
     }
 }
 
 @media (max-width: 1030px) {
     .products_cards {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
+
     .products_card {
         max-width: none;
-        width: 100%; 
+        width: 100%;
     }
 }
 
@@ -160,12 +172,13 @@
     .products_cards {
         grid-template-columns: 1fr;
     }
+
     .products_options {
         display: flex;
         flex-direction: column;
     }
 
-    .products_options .button{
+    .products_options .button {
         max-width: 300px;
         width: 100%;
     }

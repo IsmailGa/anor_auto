@@ -11,9 +11,11 @@
     font-size: 42px;
     text-align: center;
     color: var(--white);
+    padding-bottom: 30px;
 }
 
 .partners_brands {
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +33,8 @@
     height: 100%;
     z-index: 1000;
     transition: 1s;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .partners_brands img:hover{

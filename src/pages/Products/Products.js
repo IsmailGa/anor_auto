@@ -10,10 +10,12 @@ import "./Products.css";
 import { CategoryPage } from "../Category/CategoryPage.js";
 import PreLoader from "../../components/Pre/Pre.js";
 import { useLanguage } from "../LanguageContext.js";
+import { MapLocation } from "../Home/homeComponents/Location/Location.js";
 
 export const Products = () => {
   const { lang } = useLanguage();
   const [products, setProducts] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const titleStyle = { fontFamily: lang === "ru" ? "Onest" : "Archivo" };
 
@@ -73,7 +75,7 @@ export const Products = () => {
             </NavLink>
           ))}
         </div>
-        <ul className="category_links">
+        <ul className={isOpen ? "products_category_links open" : "products_category_links"}>
           {categories.map(({ key, en, ru }) => (
             <li key={key}>
               <NavLink to={`category/${key}`} style={langStyle}>
@@ -97,6 +99,7 @@ export const Products = () => {
           </Routes>
         </div>
         <Partners />
+        <MapLocation />
       </div>
     </section>
   );

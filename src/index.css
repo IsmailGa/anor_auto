@@ -36,7 +36,7 @@ body {
 
 @media (max-width: 700px) {
   body {
-    overflow-x: unset;
+    overflow-x: hidden;
   }
   .container {
     max-width: 1440px;
