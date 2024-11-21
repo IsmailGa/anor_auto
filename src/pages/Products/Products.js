@@ -73,9 +73,9 @@ export const Products = () => {
             >
               {label}
             </NavLink>
-          ))}
+          ))} 
         </div>
-        <ul className={isOpen ? "products_category_links open" : "products_category_links"}>
+        <ul className={true ? "products_category_links open" : "products_category_links"}>
           {categories.map(({ key, en, ru }) => (
             <li key={key}>
               <NavLink to={`category/${key}`} style={langStyle}>

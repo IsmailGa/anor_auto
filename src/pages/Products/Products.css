@@ -30,6 +30,8 @@
 }
 
 .products_options .button {
+    width: 100% !important;
+    max-width: fit-content;
     border: var(--button-border);
     outline: none;
     border-radius: var(--button-border-radius);
@@ -123,7 +125,6 @@
 .products_category_links {
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 10px;
     flex-wrap: wrap;
     visibility: hidden;
@@ -154,6 +155,8 @@
 
     .products_card {
         max-width: 400px;
+        min-width: unset;
+        width: 100%;
     }
 }
 
@@ -163,7 +166,7 @@
     }
 
     .products_card {
-        max-width: none;
+        max-width: 300px;
         width: 100%;
     }
 }
@@ -174,12 +177,17 @@
     }
 
     .products_options {
+        width: 100%;
         display: flex;
         flex-direction: column;
+    }
+    
+    .products_card {
+        max-width: 200px;
     }
 
     .products_options .button {
         max-width: 300px;
-        width: 100%;
+        width: 50px;
     }
 }

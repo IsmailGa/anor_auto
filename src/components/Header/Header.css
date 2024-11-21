@@ -82,6 +82,7 @@ NAV LINKS
     margin-right: 15px;
     margin-left: 15px;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .nav_links a:first-child {
@@ -283,7 +284,6 @@ SEARCH
     font-size: 20px;
 }
 
-
 .lang_switchers {
     display: flex;
     border: 1px solid black;
@@ -293,6 +293,7 @@ SEARCH
 }
 
 .lang_switchers button {
+    cursor: pointer;
     background: transparent;
     border: none;
     outline: none;
