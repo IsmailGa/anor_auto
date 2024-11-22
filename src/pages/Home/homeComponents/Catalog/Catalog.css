@@ -94,7 +94,7 @@
 }
 
 @media (max-width: 570px) {
-    .category_links {
+    .category_links{
         border: 2px solid #ffffff40;
         border-radius: 15px;
         width: 100%;
@@ -112,9 +112,15 @@
 
     .category_links.open {
         height: 100%;
-        overflow: scroll;
+        overflow-y: scroll;
         visibility: visible;
         opacity: 1;
+    }
+
+    .category_links::-webkit-scrollbar{
+        width: 5px;
+        border-radius: 15px;
+        background: #3a3e431a;
     }
 
     .category_links li {

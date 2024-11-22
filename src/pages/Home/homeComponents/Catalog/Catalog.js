@@ -5,7 +5,7 @@ import { ArrowRight } from "../../../../components/Icons/Icons";
 import "./Catalog.css";
 import { useLanguage } from "../../../LanguageContext";
 
-export const Catalog = () => {
+export const Catalog = ({setOpenCategory}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { lang } = useLanguage();
 
@@ -69,6 +69,7 @@ export const Catalog = () => {
           <NavLink
             className="home_category_button"
             to="/products"
+            onClick={() => setOpenCategory(true)}
             style={
               lang === "ru"
                 ? { fontFamily: "Onest" }

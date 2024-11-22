@@ -123,19 +123,25 @@
 }
 
 .products_category_links {
+    min-width: 300px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 10px;
     flex-wrap: wrap;
     visibility: hidden;
     opacity: 0;
+    min-height: 0;
+    max-height: 100px;
     height: 0;
+    transition: .2s  ease-in;
 }
 
 .products_category_links.open {
     visibility: visible;
     opacity: 1;
-    height: auto;
+    height: 100%;
 }
 
 .products_category_links a {
@@ -146,6 +152,61 @@
 .products_category_links a:hover {
     color: #ffffff;
 }
+
+.p_c_btn {
+    display: block;
+    max-width: 300px;
+    height: 50px;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 15px;
+    border: 2px solid var(--white);
+    outline: 0;
+    background: transparent;
+    color: var(--white);
+    transition: .4s;
+    position: relative;
+
+}
+
+.p_c_btn.active {
+    background: var(--white);
+    border: 2px solid var(--white);
+    color: black !important;
+}
+
+.p_c_btn::after {
+    content: " ";
+    border-radius: 5px;
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background: var(--white);
+    top: 50%;
+    right: 10%;
+    transform: rotate(60deg);
+    transition: .4s;
+}
+
+.p_c_btn::before {
+    content: " ";
+    position: absolute;
+    border-radius: 5px;
+    width: 15px;
+    height: 2px;
+    background: var(--white);
+    top: 50%;
+    right: 7.5%;
+    transform: rotate(120deg);
+    transition: .4s;
+}
+
+.p_c_btn.active::before, .p_c_btn.active::after {
+    transform: rotate(0deg);
+    background: var(--black);
+}
+
+
 
 
 @media (max-width: 1363px) {
@@ -181,9 +242,9 @@
         display: flex;
         flex-direction: column;
     }
-    
+
     .products_card {
-        max-width: 200px;
+        min-width: 300px;
     }
 
     .products_options .button {

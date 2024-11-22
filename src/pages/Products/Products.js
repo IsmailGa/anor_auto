@@ -12,12 +12,13 @@ import PreLoader from "../../components/Pre/Pre.js";
 import { useLanguage } from "../LanguageContext.js";
 import { MapLocation } from "../Home/homeComponents/Location/Location.js";
 
-export const Products = () => {
+export const Products = ({openCategory}) => {
   const { lang } = useLanguage();
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const titleStyle = { fontFamily: lang === "ru" ? "Onest" : "Archivo" };
+  const categoryStyle = {display: "flex", flexDirection: "column", gap : "20px"}
 
   useEffect(() => {
     setIsLoading(true);
@@ -26,6 +27,7 @@ export const Products = () => {
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
+        setIsOpen(openCategory)
       })
       .catch((err) => {
         console.error(err);
@@ -73,17 +75,43 @@ export const Products = () => {
             >
               {label}
             </NavLink>
-          ))} 
-        </div>
-        <ul className={true ? "products_category_links open" : "products_category_links"}>
-          {categories.map(({ key, en, ru }) => (
-            <li key={key}>
-              <NavLink to={`category/${key}`} style={langStyle}>
-                {lang === "en" ? en : ru}
-              </NavLink>
-            </li>
           ))}
-        </ul>
+        </div>
+        <div style={categoryStyle}>
+          <button
+            className={isOpen ? "p_c_btn active" : "p_c_btn"}
+            onClick={() => setIsOpen(!isOpen)}
+            style={
+              lang === "ru"
+                ? { fontFamily: "Onest" }
+                : { fontFamily: "Archivo" }
+            }
+          >
+            {lang == "en"
+              ? !isOpen
+                ? "Open all categories"
+                : "Close all categories"
+              : !isOpen
+              ? "Открыть все категории"
+              : "Закрыть все категори"}
+          </button>
+          <ul
+            className={
+              isOpen
+                ? "products_category_links open"
+                : "products_category_links"
+            }
+          >
+            {categories.map(({ key, en, ru }) => (
+              <li key={key}>
+                <NavLink to={`category/${key}`} style={langStyle}>
+                  {lang === "en" ? en : ru}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className="products_content">
           <PreLoader load={isLoading} />
           <Routes>

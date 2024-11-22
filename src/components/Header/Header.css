@@ -107,6 +107,7 @@ NAV LINKS
     transform: translate(-50%, -50%);
     visibility: hidden;
     opacity: 0;
+    text-align: center;
 }
 
 .nav_title.open {

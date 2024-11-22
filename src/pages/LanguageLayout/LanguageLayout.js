@@ -1,5 +1,5 @@
 // LanguageLayout.js
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
@@ -9,13 +9,15 @@ import Product from "../Products/Product/Product";
 import { Products } from "../Products/Products";
 
 const LanguageLayout = () => {
+  const [openCategory, setOpenCategory] = useState(false);
+
   return (
     <>
       <Header />
       <Routes>
-        <Route path="" element={<Home />} />
+        <Route path="" element={<Home setOpenCategory={setOpenCategory}/>} />
         <Route path="/service" element={<Service />} />
-        <Route path="/products/*" element={<Products />} />
+        <Route path="/products/*" element={<Products openCategory={openCategory}/>} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
