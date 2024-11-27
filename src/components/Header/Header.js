@@ -77,20 +77,22 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <nav>
-          <div className="burger_menu">
-            <RxHamburgerMenu
-              className="header_icon burger_icon"
-              onClick={() => {
-                setIsOpen(!isOpen);
-                setIsOpenSearch(false);
-              }}
-            />
+          <div
+            className={`burger_menu ${isOpen ? "open" : ""}`}
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setIsOpenSearch(false);
+            }}
+          >
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
           </div>
 
           <div className={isOpen ? "nav_links open" : "nav_links"}>
-            <div className="close_icon" onClick={() => setIsOpen(!isOpen)}>
+            {/* <div className="close_icon" onClick={() => setIsOpen(!isOpen)}>
               <AiOutlineClose />
-            </div>
+            </div> */}
 
             {navLinks[lang].map(({ href, label }) => (
               <div

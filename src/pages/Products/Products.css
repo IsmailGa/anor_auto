@@ -201,11 +201,14 @@
     transition: .4s;
 }
 
-.p_c_btn.active::before, .p_c_btn.active::after {
-    transform: rotate(0deg);
+.p_c_btn.active::before{
+    transform: translateX(-45%) rotate(130deg);
     background: var(--black);
 }
-
+.p_c_btn.active::after {
+    transform: translateX(10%) rotate(50deg);
+    background: var(--black);
+}
 
 
 

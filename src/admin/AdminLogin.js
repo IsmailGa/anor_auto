@@ -12,17 +12,14 @@ function AdminLogin({ setToken }) {
   axios.defaults.withCredentials = true;
 
   const handleLogin = async (e) => {
-    setError("")
+    setError("");
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:6060/api/admins/login", {
-        username,
-        password
-      });
-      localStorage.setItem("token", res.data.token);
-      setToken(res.data.token);
-      navigate("/admin/panel");
+      axios
+        .post("http://localhost:6060/api/admins/login", { username, password })
+        .then(() => navigate("/admin/panel"))
+        .catch((err) => setError("Неверные учетные данные", err));
     } catch (err) {
       console.log(err.message);
       setError("Неверные учетные данные");

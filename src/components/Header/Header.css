@@ -149,10 +149,36 @@ ICONS
     background-color: #3a3e4360;
 }
 
-.burger_icon {
-    margin: 0;
+.burger_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    position: relative;
 }
 
+.line {
+    width: 30px;
+    height: 2px;
+    background: var(--white);
+    margin: 3px auto;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.burger_menu.open .line:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.burger_menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger_menu.open .line:nth-child(3) {
+    transform: translateY(-10px)  rotate(-45deg);
+}
 
 
 .cart_icon {
@@ -362,6 +388,10 @@ SEARCH
         position: absolute;
         right: 10%;
     }
+
+    .burger_menu{
+        z-index: 1001;
+    }
 }
 
 @media (max-width: 700px) {
@@ -388,7 +418,7 @@ SEARCH
         z-index: 100;
     }
 
-    .search_bar.open_search{
+    .search_bar.open_search {
         width: 150px;
     }
 }
@@ -423,7 +453,7 @@ SEARCH
         left: 0%;
     }
 
-    .search_bar{
+    .search_bar {
         position: fixed;
         top: 17%;
         right: 10%;

@@ -15,7 +15,7 @@ export const AllProducts = ({ products }) => {
 
   if (!products.length) {
     return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", ...titleStyle }}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", paddingTop: "30px" , color: "white",...titleStyle }}>
         {lang === "en" ? "Loading products..." : "Загружаем продукты..."}
       </div>
     );

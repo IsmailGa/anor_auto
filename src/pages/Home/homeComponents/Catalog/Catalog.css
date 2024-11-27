@@ -47,6 +47,7 @@
     font-weight: 400;
     column-gap: 20px;
     row-gap: 10px;
+    max-width: 70%;
 }
 
 .category_links li {
