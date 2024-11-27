@@ -46,10 +46,11 @@ export const Header = () => {
 
   useEffect(() => {
     document.body.style.overflow = input ? "hidden" : "visible";
+    document.body.style.overflow = isOpen ? "hidden" : "visible";
     return () => {
       document.body.style.overflow = "visible";
     };
-  }, [input]);
+  }, [input, isOpen]);
 
   const filteredData = products.filter((product) => {
     const lowerInput = input.toLowerCase();

@@ -8,6 +8,16 @@
     }
 }
 
+@-webkit-keyframes someAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 /*
 ===
 
@@ -19,6 +29,8 @@ HEADER
 
 .header {
     width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,9 +40,10 @@ HEADER
     position: relative;
 }
 
-
 .header nav {
     position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +66,8 @@ NAV LINKS
 .nav_links {
     opacity: 0;
     visibility: hidden;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,6 +78,8 @@ NAV LINKS
 }
 
 .nav_links-sec {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,6 +167,8 @@ ICONS
 }
 
 .burger_menu {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,9 +196,8 @@ ICONS
 }
 
 .burger_menu.open .line:nth-child(3) {
-    transform: translateY(-10px)  rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
 }
-
 
 .cart_icon {
     font-size: 55px;
@@ -188,7 +206,6 @@ ICONS
 .close_icon {
     display: none;
 }
-
 
 /*
 ===
@@ -200,11 +217,15 @@ SEARCH
 */
 
 .search {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     gap: 10px;
 }
 
 .search_bar {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,7 +242,6 @@ SEARCH
     border-radius: 50px;
 }
 
-
 .search_bar input[type="search"] {
     width: 100%;
     padding: 0 15px;
@@ -232,12 +252,13 @@ SEARCH
     font-size: 1em;
     background-color: #3A3E4340;
     color: var(--white);
-    border-radius: 50px;
     transition: width 0.5s ease;
 }
 
 .search_icon {
     cursor: pointer;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,7 +270,6 @@ SEARCH
     transition: 2s ease-in-out;
 }
 
-
 .search_bar input[type='search']::-webkit-search-cancel-button {
     display: none;
 }
@@ -260,6 +280,8 @@ SEARCH
     right: 5%;
     background-color: #3A3E4310;
     backdrop-filter: blur(20px);
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,6 +303,8 @@ SEARCH
     padding: 10px;
     background: #3a3e4340;
     gap: 10px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -312,6 +336,8 @@ SEARCH
 }
 
 .lang_switchers {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     border: 1px solid black;
     height: 40px;
@@ -334,12 +360,7 @@ SEARCH
     background: #FFFFFF70;
 }
 
-
-
-
-
 @media (max-width: 1040px) {
-
     .nav_links {
         opacity: 0;
         visibility: hidden;
@@ -353,6 +374,8 @@ SEARCH
         width: 100vw;
         height: 100vh;
         background: var(--main-bg);
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -370,7 +393,6 @@ SEARCH
         text-decoration: none;
     }
 
-    /* Close button styling */
     .close_icon {
         position: absolute;
         display: block;
@@ -389,7 +411,7 @@ SEARCH
         right: 10%;
     }
 
-    .burger_menu{
+    .burger_menu {
         z-index: 1001;
     }
 }
@@ -405,6 +427,8 @@ SEARCH
         right: 0;
         background-color: #3A3E4310;
         backdrop-filter: blur(20px);
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
         flex-direction: column;
         padding: 10px;
@@ -426,6 +450,8 @@ SEARCH
 @media (max-width: 500px) {
     .header {
         height: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
         height: 120px;
         padding: 0;
@@ -435,6 +461,8 @@ SEARCH
 
     .header nav {
         border-radius: 0 !important;
+        display: -webkit-flex !important;
+        display: -ms-flexbox !important;
         display: flex !important;
         height: 100%;
         flex-direction: column;
@@ -443,13 +471,13 @@ SEARCH
     }
 
     .search {
-        top: 18%;
+        top: 25%;
         right: 0;
     }
 
     .burger_menu {
         position: absolute;
-        top: 18%;
+        top: 25%;
         left: 0%;
     }
 
@@ -464,5 +492,4 @@ SEARCH
         background: #3A3E43;
         width: 200px;
         border-radius: 50px;
-    }
-}
+    }}

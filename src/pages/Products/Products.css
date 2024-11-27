@@ -60,6 +60,7 @@
 
 
 .products_cards {
+    width: 100%;
     padding-top: 55px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -72,7 +73,8 @@
     flex-direction: column;
     color: var(--white);
     width: 100%;
-    min-width: 300px;
+    min-width: 0;
+    max-width: 400px;
     padding: 5px 5px 10px 5px;
     height: 100%;
     border-radius: 35px;
@@ -230,7 +232,8 @@
     }
 
     .products_card {
-        max-width: 300px;
+        min-width: 0;
+        max-width: 400px;
         width: 100%;
     }
 }
@@ -247,11 +250,13 @@
     }
 
     .products_card {
-        min-width: 300px;
+        min-width: 0;
+        max-width: 300px;
     }
 
     .products_options .button {
-        max-width: 300px;
+        min-width: 0;
+        max-width: 400px;
         width: 50px;
     }
 }
