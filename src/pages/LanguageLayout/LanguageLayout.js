@@ -10,7 +10,6 @@ import { Products } from "../Products/Products";
 
 const LanguageLayout = () => {
   const [openCategory, setOpenCategory] = useState(false);
-
   return (
     <>
       <Header />

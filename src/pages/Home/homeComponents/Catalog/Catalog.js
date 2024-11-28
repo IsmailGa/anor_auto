@@ -68,7 +68,7 @@ export const Catalog = ({setOpenCategory}) => {
 
           <NavLink
             className="home_category_button"
-            to="/products"
+            to="/products/all"
             onClick={() => setOpenCategory(true)}
             style={
               lang === "ru"

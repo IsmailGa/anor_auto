@@ -45,13 +45,13 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = input ? "hidden" : "visible";
-    document.body.style.overflow = isOpen ? "hidden" : "visible";
+    document.body.style.overflow = input.length > 0 ? "hidden" : "visible";
     return () => {
       document.body.style.overflow = "visible";
     };
-  }, [input, isOpen]);
+  }, [input]);
 
+  
   const filteredData = products.filter((product) => {
     const lowerInput = input.toLowerCase();
     return (
@@ -91,10 +91,6 @@ export const Header = () => {
           </div>
 
           <div className={isOpen ? "nav_links open" : "nav_links"}>
-            {/* <div className="close_icon" onClick={() => setIsOpen(!isOpen)}>
-              <AiOutlineClose />
-            </div> */}
-
             {navLinks[lang].map(({ href, label }) => (
               <div
                 key={href}
