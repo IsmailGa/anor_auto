@@ -309,6 +309,7 @@ SEARCH
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .search_result:hover {

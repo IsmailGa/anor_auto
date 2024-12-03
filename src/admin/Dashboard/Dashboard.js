@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 export default function Dashboard({ handleLogOut }) {
   const adminLinks = [
-    { href: "/admin/panel", label: "Панель" },
-    { href: "/admin/products", label: "Продукты" },
+    { href: "/admin-d-8884/panel", label: "Панель" },
+    { href: "/admin-d-8884/products", label: "Продукты" },
   ];
 
   return (

@@ -31,7 +31,7 @@ const AdminProducts = memo(function AdminProducts() {
       <>
         <div className="category_links">
           {categories.map((cat) => (
-            <NavLink key={cat} to={`/admin/category/${cat.toLowerCase()}`}>
+            <NavLink key={cat} to={`/admin-d-8884/category/${cat.toLowerCase()}`}>
               {cat}
             </NavLink>
           ))}

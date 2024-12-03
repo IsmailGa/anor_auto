@@ -12,16 +12,23 @@ function AdminLogin({ setToken }) {
   axios.defaults.withCredentials = true;
 
   const handleLogin = async (e) => {
-    setError("");
     e.preventDefault();
-
+    setError(""); 
     try {
-      axios
-        .post("http://localhost:6060/api/admins/login", { username, password })
-        .then(() => navigate("/admin/panel"))
-        .catch((err) => setError("Неверные учетные данные", err));
+      const response = await axios.post("http://localhost:6060/api/admins/login", {
+        username,
+        password,
+      });
+      const { token } = response.data;
+
+      if (token) {
+        setToken(token);
+        navigate("/admin-d-8884/panel");
+      } else {
+        setError("Ошибка: токен не получен от сервера.");
+      }
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
       setError("Неверные учетные данные");
     }
   };
@@ -40,7 +47,7 @@ function AdminLogin({ setToken }) {
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder=" "
                 />
-                <span class="placeholder">Имя пользователя</span>
+                <span className="placeholder">Имя пользователя</span>
               </label>
             </div>
             <div>
@@ -51,7 +58,7 @@ function AdminLogin({ setToken }) {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder=" "
                 />
-                <span class="placeholder">Пароль</span>
+                <span className="placeholder">Пароль</span>
               </label>
             </div>
             {error && <p className="error_msg">{error}</p>}

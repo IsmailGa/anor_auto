@@ -32,8 +32,8 @@ function App() {
       <ScrollToTop />
       {/* {!isAdminRoute && <Header />} */}
       <Routes>
-        <Route path="admin/*" element={<Admin />}/>
-        <Route path="admin" element={<Navigate to="/admin/panel" replace/>}/>
+        <Route path="admin-d-8884/*" element={<Admin />}/>
+        <Route path="admin-d-8884" element={<Navigate to="/admin-d-8884/panel" replace/>}/>
         {/* {/* <Route path="service" element={<Service />} />
         <Route path="product/:id" element={<Product />}/>
         <Route exact path="/" element={<Home />} />

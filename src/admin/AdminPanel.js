@@ -6,7 +6,7 @@ import { storage } from "../firebase/config";
 import "./adminPanel.css";
 import { Upload } from "../components/Icons/Icons";
 
-function AdminPanel({ pr }) {
+function AdminPanel({ token }) {
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [errorDel, setErrorDel] = useState(false);
@@ -33,14 +33,11 @@ function AdminPanel({ pr }) {
   const [newImage, setNewImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const token = localStorage.getItem("token");
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-
-  const navigate = useNavigate();
   const DEFAULT_IMAGE_URL =
     "https://firebasestorage.googleapis.com/v0/b/anor-auto.appspot.com/o/products%2FdefaultImage.png?alt=media&token=62ca506a-02b1-4716-83ac-55bec99f4b6f";
 

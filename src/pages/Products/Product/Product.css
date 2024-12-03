@@ -17,6 +17,7 @@
     color: var(--white);
     background: #9D0208;
     gap: 10px;
+    cursor: pointer;
 }
 
 .product button svg {
@@ -80,6 +81,7 @@
 }
 
 .status {
+    cursor: pointer;
     font-size: 35px;
     color: green;
 }

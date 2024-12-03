@@ -17,9 +17,9 @@ function AdminProduct() {
       .catch((err) => {
         console.error("Error fetching product:", err);
         setProduct(null); 
+
       });
   }, [id]);
-
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -27,7 +27,7 @@ function AdminProduct() {
   return (
     <div style={{color: "#fff"}}>
       <div className="container">
-        <button onClick={() => navigate("/admin/products")}>Назад к продуктам</button>
+        <button onClick={() => navigate("/admin-d-8884/products")}>Назад к продуктам</button>
         <h1 style={{display: 'flex', gap: "10px"}}>
           {product.name_en} ({product.name_ru})
         </h1>

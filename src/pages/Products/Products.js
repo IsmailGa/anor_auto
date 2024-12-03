@@ -12,13 +12,17 @@ import PreLoader from "../../components/Pre/Pre.js";
 import { useLanguage } from "../LanguageContext.js";
 import { MapLocation } from "../Home/homeComponents/Location/Location.js";
 
-export const Products = ({openCategory}) => {
+export const Products = ({ openCategory }) => {
   const { lang } = useLanguage();
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const titleStyle = { fontFamily: lang === "ru" ? "Onest" : "Archivo" };
-  const categoryStyle = {display: "flex", flexDirection: "column", gap : "20px"}
+  const categoryStyle = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,7 +31,7 @@ export const Products = ({openCategory}) => {
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);
-        setIsOpen(openCategory)
+        setIsOpen(openCategory);
       })
       .catch((err) => {
         console.error(err);
@@ -50,8 +54,8 @@ export const Products = ({openCategory}) => {
   const navLinks = useMemo(
     () => [
       { to: "all", label: lang === "en" ? "All Products" : "Все Продукты" },
-      { to: "sales", label: lang === "en" ? "Sales" : "Акции" },
-      { to: "new", label: lang === "en" ? "New Products" : "Новые" },
+      // { to: "sales", label: lang === "en" ? "Sales" : "Акции" },
+      // { to: "new", label: lang === "en" ? "New Products" : "Новые" },
     ],
     [lang]
   );
@@ -121,8 +125,11 @@ export const Products = ({openCategory}) => {
               path="category/:category"
               element={<CategoryPage products={products} />}
             />
-            <Route path="sales" element={<SalesProducts />} />
-            <Route path="new" element={<NewProducts />} />
+            {/* <Route
+              path="sales"
+              element={<SalesProducts products={products} />}
+            />
+            <Route path="new" element={<NewProducts products={products} />} /> */}
             <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
         </div>

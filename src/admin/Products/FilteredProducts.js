@@ -7,11 +7,11 @@ export default function FilteredProducts({ products }) {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate("/admin/products/" + id);
+    navigate("/admin-d-8884/products/" + id);
   };
 
   const handleEdit = (product) => {
-    navigate("/admin/panel", { state: { product } });
+    navigate("/admin-d-8884/panel", { state: { product } });
   };
 
   // Filter products based on category URL parameter

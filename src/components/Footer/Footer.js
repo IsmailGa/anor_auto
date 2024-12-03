@@ -69,7 +69,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="https://www.instagram.com/anor_auto/">
                   <InstagramIcon />
                 </Link>
               </li>
