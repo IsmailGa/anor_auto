@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import "./adminLogin.css";
 
 function AdminLogin({ setToken }) {
@@ -64,6 +64,7 @@ function AdminLogin({ setToken }) {
             {error && <p className="error_msg">{error}</p>}
             <button type="submit">Войти</button>
           </form>
+          <NavLink to="/" style={{color: "#FFFFFF", paddingTop: "20px", fontFamily: "Onest", fontSize: "20px"}}>Обратно к главной странице</NavLink>
         </div>
       </div>
     </div>
