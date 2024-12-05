@@ -18,7 +18,6 @@ export default function Dashboard({ handleLogOut }) {
             </li>
           ))}
         </ul>
-
         <button onClick={handleLogOut} className="admin_logout">
           Выйти
         </button>
