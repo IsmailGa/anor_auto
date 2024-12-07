@@ -18,7 +18,7 @@ export const Home = ({setOpenCategory}) => {
         <Main />
         <Catalog setOpenCategory={setOpenCategory}/>
         <PopularProducts />
-        <SeasonProducts />
+        {/* <SeasonProducts /> */}
         <Partners />
         {/* <Reviews /> */}
         <MapLocation />

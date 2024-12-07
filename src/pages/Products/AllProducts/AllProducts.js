@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./AllProducts.css";
 import { useLanguage } from "../../LanguageContext";
 
@@ -31,8 +31,11 @@ export const AllProducts = ({ products }) => {
               <p className="price">
                 {product.price.toLocaleString()} <span>uzs</span>
               </p>
-              <p className="products_name" style={titleStyle}>
+              <NavLink className="products_name" style={titleStyle} to={`/product/${product.id}`}>
                 {lang === "en" ? product.name_en : product.name_ru}
+              </NavLink>
+              <p className="products_number" style={titleStyle}>
+                {product.part_number}
               </p>
               <button onClick={() => handleClick(product.id)} style={titleStyle}>
                 {lang === "en" ? "View Product" : "Посмотреть Продукт"}

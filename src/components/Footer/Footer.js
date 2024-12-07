@@ -59,12 +59,12 @@ export const Footer = () => {
             </ul>
             <ul className="footer_icons">
               <li>
-                <Link>
+                <Link to="https://t.me/Anor_auto">
                   <TelegramIcon />
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="https://www.facebook.com/idealagroinvest">
                   <FacebookIcon />
                 </Link>
               </li>

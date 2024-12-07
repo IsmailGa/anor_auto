@@ -4,6 +4,7 @@
   --white: #FFFFFF;
   --black: #000000;
   --main-bg: #141618;
+  --main-red: #9D0208;
 }
 
 .active {
@@ -13,6 +14,7 @@
 body {
   background-color: #141618;
 }
+
 ::-webkit-scrollbar {
   background: #141618;
 }
@@ -21,7 +23,7 @@ body {
   background: #ffffff10;
 }
 
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
   background: #ffffff20;
 }
 
@@ -44,9 +46,12 @@ body {
 }
 
 @media (max-width: 700px) {
-  body, html{
+
+  body,
+  html {
     overflow-x: hidden;
   }
+
   .container {
     max-width: 1440px;
     width: 100%;
