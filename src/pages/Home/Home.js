@@ -9,7 +9,7 @@ import { MapLocation } from "./homeComponents/Location/Location";
 import { useLanguage } from "../LanguageContext";
 
 
-export const Home = ({setOpenCategory}) => {
+export const Home = ({setOpenCategory, api}) => {
   const {lang} = useLanguage()
 
   return (
@@ -17,7 +17,7 @@ export const Home = ({setOpenCategory}) => {
       <div className="container">
         <Main />
         <Catalog setOpenCategory={setOpenCategory}/>
-        <PopularProducts />
+        <PopularProducts api={api}/>
         {/* <SeasonProducts /> */}
         <Partners />
         {/* <Reviews /> */}

@@ -4,7 +4,7 @@ import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useLanguage } from "../../../LanguageContext";
 
-export const PopularProducts = () => {
+export const PopularProducts = ({ api }) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
@@ -12,7 +12,7 @@ export const PopularProducts = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6060/api/products/")
+      .get(api + "/products/")
       .then((res) => {
         setProducts(res.data.slice(0, 4));
       })
@@ -29,10 +29,7 @@ export const PopularProducts = () => {
   return (
     // p_products == popular_products
     <div className="p_products">
-      <div
-      className="p_products_actions"
-        
-      >
+      <div className="p_products_actions">
         <h1
           style={
             lang === "ru" ? { fontFamily: "Onest" } : { fontFamily: "Archivo" }
@@ -42,7 +39,7 @@ export const PopularProducts = () => {
         </h1>
         <button
           onClick={() => {
-            navigate("/products/all")
+            navigate("/products/all");
           }}
           className="p_products_button"
           style={
