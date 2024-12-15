@@ -11,7 +11,8 @@
 .location iframe {
     width: 100%;
     height: 500px;
-    border-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     border: none;
     outline: none;
 }
