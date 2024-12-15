@@ -4,14 +4,14 @@ import "./index.css";
 import FilteredProducts from "./FilteredProducts";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
-const AdminProducts = memo(function AdminProducts() {
+const AdminProducts = memo(function AdminProducts({api}) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:6060/api/products/")
+      .get(api+"/products/")
       .then((res) => {
         setIsLoading(true);
         setProducts(res.data);

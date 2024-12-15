@@ -6,7 +6,7 @@ import { storage } from "../firebase/config";
 import "./adminPanel.css";
 import { Upload } from "../components/Icons/Icons";
 
-function AdminPanel({ token }) {
+function AdminPanel({ token, api }) {
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [errorDel, setErrorDel] = useState(false);
@@ -43,7 +43,7 @@ function AdminPanel({ token }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6060/api/products", config)
+      .get(api+"/products", config)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -104,7 +104,7 @@ function AdminPanel({ token }) {
 
       if (newProduct.id) {
         const response = await axios.put(
-          `http://localhost:6060/api/products/${newProduct.id}`,
+          `${api}/products/${newProduct.id}`,
           { ...newProduct, image_url: finalImageUrl },
           config
         );
@@ -114,7 +114,7 @@ function AdminPanel({ token }) {
         setState("Продукт был изменён");
       } else {
         const response = await axios.post(
-          "http://localhost:6060/api/products",
+          `${api}/products`,
           { ...newProduct, image_url: finalImageUrl },
           config
         );
@@ -151,7 +151,7 @@ function AdminPanel({ token }) {
       if (!id) {
         setErrorDel(true);
       }
-      await axios.delete(`http://localhost:6060/api/products/${id}`, config);
+      await axios.delete(`${api}/products/${id}`, config);
       setProducts(products.filter((product) => product.id !== id));
       setNewProduct({
         id: null,

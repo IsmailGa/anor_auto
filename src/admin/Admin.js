@@ -8,14 +8,14 @@ import Dashboard from "./Dashboard/Dashboard";
 import AdminProduct from "./Products/AdminProduct";
 import AdminProducts from "./Products/AdminProducts";
 
-export default function Admin() {
+export default function Admin({api}) {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [token, setToken] = useState(cookies.token || null);
 
   const handleLogout = async () => {
     try {
       // Request to the backend to logout the user
-      await axios.post("http://localhost:6060/api/admins/logout", {}, { withCredentials: true });
+      await axios.post(api + "/admins/logout", {}, { withCredentials: true });
 
       // Remove token from both cookies and state
       removeCookie("token");
@@ -49,7 +49,7 @@ export default function Admin() {
           path="panel"
           element={
             token ? (
-              <AdminPanel token={token} />
+              <AdminPanel api={api} token={token} />
             ) : (
               <Navigate to="/admin-d-8884/login" />
             )
@@ -61,21 +61,21 @@ export default function Admin() {
             token ? (
               <Navigate to="/admin-d-8884/panel" replace />
             ) : (
-              <AdminLogin setToken={saveToken} />
+              <AdminLogin api={api} setToken={saveToken} />
             )
           }
         />
         <Route
           path="products"
-          element={token ? <AdminProducts /> : <Navigate to="/404" replace />}
+          element={token ? <AdminProducts api={api} /> : <Navigate to="/404" replace />}
         />
         <Route
           path="category/:category"
-          element={token ? <AdminProducts /> : <Navigate to="/404" replace />}
+          element={token ? <AdminProducts api={api} /> : <Navigate to="/404" replace />}
         />
         <Route
           path="products/:id"
-          element={token ? <AdminProduct /> : <Navigate to="/404" replace />}
+          element={token ? <AdminProduct api={api} /> : <Navigate to="/404" replace />}
         />
       </Routes>
     </div>

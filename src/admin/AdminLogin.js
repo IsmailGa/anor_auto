@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
 import "./adminLogin.css";
 
-function AdminLogin({ setToken }) {
+function AdminLogin({ setToken, api }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,7 +15,7 @@ function AdminLogin({ setToken }) {
     e.preventDefault();
     setError(""); 
     try {
-      const response = await axios.post("http://localhost:6060/api/admins/login", {
+      const response = await axios.post(api+"/admins/login", {
         username,
         password,
       });

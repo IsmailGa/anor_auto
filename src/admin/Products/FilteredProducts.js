@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./index.css";
 
-export default function FilteredProducts({ products }) {
+export default function FilteredProducts({ products}) {
   const { category } = useParams();
   const navigate = useNavigate();
 

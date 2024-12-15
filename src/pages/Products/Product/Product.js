@@ -6,7 +6,7 @@ import { ArrowLeftW } from "../../../components/Icons/Icons";
 import Modal from "../../../components/PhoneModal/Modal";
 import { useLanguage } from "../../LanguageContext";
 
-function Product() {
+function Product({api}) {
   const [isShow, setIsShow] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function Product() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:6060/api/products/${id}`)
+      .get(`${api}/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => {
         console.error("Error fetching product:", err);

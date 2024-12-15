@@ -12,7 +12,7 @@ import PreLoader from "../../components/Pre/Pre.js";
 import { useLanguage } from "../LanguageContext.js";
 import { MapLocation } from "../Home/homeComponents/Location/Location.js";
 
-export const Products = ({ openCategory }) => {
+export const Products = ({ openCategory, api }) => {
   const { lang } = useLanguage();
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ export const Products = ({ openCategory }) => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("http://localhost:6060/api/products/")
+      .get(api + "/products/")
       .then((res) => {
         setProducts(res.data);
         setIsLoading(false);

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-function AdminProduct() {
+function AdminProduct({api}) {
   const { id } = useParams();
   const navigate = useNavigate()
   const [product, setProduct] = useState(null); // Initially null to show "Loading..."
 
   useEffect(() => {
     axios
-      .get(`http://localhost:6060/api/products/${id}`)
+      .get(`${api}/products/${id}`)
       .then((res) => {
         console.log("API Response:", res.data);
         setProduct(res.data);
