@@ -8,20 +8,18 @@ import Dashboard from "./Dashboard/Dashboard";
 import AdminProduct from "./Products/AdminProduct";
 import AdminProducts from "./Products/AdminProducts";
 
-export default function Admin({api}) {
+export default function Admin({ api }) {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [token, setToken] = useState(cookies.token || null);
+  const [isValidToken, setIsValidToken] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleLogout = async () => {
     try {
-      // Request to the backend to logout the user
       await axios.post(api + "/admins/logout", {}, { withCredentials: true });
-
-      // Remove token from both cookies and state
       removeCookie("token");
       setToken(null);
-
-      // Redirect to login page
+      setIsValidToken(false);
       window.location.href = "/admin-d-8884/login";
     } catch (error) {
       console.error("Logout error", error);
@@ -33,32 +31,57 @@ export default function Admin({api}) {
     setCookie("token", newToken, { path: "/", maxAge: 2592000 });
   };
 
-  useEffect(() => {
-    // Sync token from cookies when page is reloaded
-    const savedToken = cookies.token;
-    if (savedToken !== token) {
-      setToken(savedToken);
+  const validateToken = async () => {
+    try {
+      if (token) {
+        const response = await axios.post(
+          api + "/admins/validate-token",
+          { token },
+          { withCredentials: true }
+        );
+
+        if (response.data.valid) {
+          setIsValidToken(true);
+        } else {
+          handleLogout();
+        }
+      } else {
+        setIsValidToken(false);
+      }
+    } catch (error) {
+      console.error("Token validation failed", error);
+      handleLogout();
+    } finally {
+      setLoading(false);
     }
-  }, [cookies, token]); // Dependency on cookies and token to track changes
+  };
+
+  useEffect(() => {
+    validateToken();
+  }, [token]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="admin">
-      {token && <Dashboard handleLogOut={handleLogout} />}
+      {isValidToken && <Dashboard handleLogOut={handleLogout} />}
       <Routes>
         <Route
           path="panel"
           element={
-            token ? (
+            isValidToken ? (
               <AdminPanel api={api} token={token} />
             ) : (
-              <Navigate to="/admin-d-8884/login" />
+              <Navigate to="/admin-d-8884/login" replace />
             )
           }
         />
         <Route
           path="login"
           element={
-            token ? (
+            isValidToken ? (
               <Navigate to="/admin-d-8884/panel" replace />
             ) : (
               <AdminLogin api={api} setToken={saveToken} />
@@ -67,15 +90,21 @@ export default function Admin({api}) {
         />
         <Route
           path="products"
-          element={token ? <AdminProducts api={api} /> : <Navigate to="/404" replace />}
+          element={
+            isValidToken ? <AdminProducts api={api} /> : <Navigate to="/404" replace />
+          }
         />
         <Route
           path="category/:category"
-          element={token ? <AdminProducts api={api} /> : <Navigate to="/404" replace />}
+          element={
+            isValidToken ? <AdminProducts api={api} /> : <Navigate to="/404" replace />
+          }
         />
         <Route
           path="products/:id"
-          element={token ? <AdminProduct api={api} /> : <Navigate to="/404" replace />}
+          element={
+            isValidToken ? <AdminProduct api={api} /> : <Navigate to="/404" replace />
+          }
         />
       </Routes>
     </div>

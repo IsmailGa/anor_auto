@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 import { useNavigate, NavLink } from "react-router-dom";
 import "./adminLogin.css";
 
@@ -8,6 +9,8 @@ function AdminLogin({ setToken, api }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
 
   axios.defaults.withCredentials = true;
 
@@ -20,7 +23,6 @@ function AdminLogin({ setToken, api }) {
         password,
       });
       const { token } = response.data;
-
       if (token) {
         setToken(token);
         navigate("/admin-d-8884/panel");
