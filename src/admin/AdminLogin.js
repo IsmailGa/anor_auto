@@ -41,7 +41,6 @@ function AdminLogin({ setToken, api }) {
         <div className="admin_content">
           <h2>Admin Login</h2>
           <form onSubmit={handleLogin}>
-            <div>
               <label className="custom-field one">
                 <input
                   type="text"
@@ -51,8 +50,6 @@ function AdminLogin({ setToken, api }) {
                 />
                 <span className="placeholder">Имя пользователя</span>
               </label>
-            </div>
-            <div>
               <label className="custom-field one">
                 <input
                   type="password"
@@ -62,7 +59,6 @@ function AdminLogin({ setToken, api }) {
                 />
                 <span className="placeholder">Пароль</span>
               </label>
-            </div>
             {error && <p className="error_msg">{error}</p>}
             <button type="submit">Войти</button>
           </form>
