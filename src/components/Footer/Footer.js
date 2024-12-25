@@ -74,6 +74,21 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
+            <div className="footer_contact">
+              <ul className="">
+                <li>
+                  <a href="tel:+998983608884">+998 (98) 360-88-84</a>
+                </li>
+                <li>
+                  <a href="tel:+998977742929">+998 (97) 774-29-29</a>
+                </li>
+                <li>
+                  <a href="mailto:idealagroinvest@yandex.com">
+                    Email: idealagroinvest@yandex.com
+                  </a>
+                </li>
+              </ul>
+            </div>
             <div
               className="footer_copyright"
               style={

@@ -88,7 +88,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 1.5rem;
 }
 .products_name{
     max-width: fit-content;

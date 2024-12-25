@@ -62,6 +62,7 @@ FOOTER LINKS
 .footer_right {
     display: flex;
     flex-direction: column;
+    gap: 30px;
 }
 
 .footer_links{
@@ -76,16 +77,29 @@ FOOTER LINKS
 
 .footer_icons {
     display: flex;
-    padding-top: 40px;
     gap: 20px;
 }
 
 .footer_copyright {
-    padding-top: 40px;
+
     font-size: 20px;
     color: #858585;
     max-width: 323px;
     width: 100%;
+}
+
+.footer_contact {
+    display: flex;
+}
+
+.footer_contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer_contact a {
+   color: var(--white);
 }
 
 @media (max-width: 700px) {

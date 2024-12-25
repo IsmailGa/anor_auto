@@ -58,7 +58,6 @@
 
 .about_intro p{
     min-width: 0;
-   
     width: 100%;
     color: #FFFFFF;
     font-size: 1.5rem;
@@ -67,5 +66,5 @@
 .about_info p{
     color: #707070;
     font-size: 1.5rem;
-    line-height: 1.5rem;
+    line-height: 2.5rem;
 }
