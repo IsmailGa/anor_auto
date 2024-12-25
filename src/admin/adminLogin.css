@@ -28,6 +28,7 @@
 }
 
 .admin_content form {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +56,9 @@
 }
 
 .custom-field {
+    min-width: 0;
+    width: 100%;
+    max-width: 550px;
     position: relative;
     font-size: 14px;
     border-top: 20px solid transparent;
@@ -64,6 +68,9 @@
 }
 
 .custom-field input {
+    width: 100%;
+    min-width: 0;
+    max-width: 550px;
     border: none;
     -webkit-appearance: none;
     -ms-appearance: none;
@@ -72,7 +79,7 @@
     background: #f2f2f2;
     padding: var(--field-padding);
     border-radius: 3px;
-    width: 450px;
+   
     outline: none;
     font-size: 14px;
     color: #fff;

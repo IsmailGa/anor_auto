@@ -5,7 +5,7 @@ import { SearchIcon } from "../Icons/Icons";
 import "./Header.css";
 import { useLanguage } from "../../pages/LanguageContext";
 
-export const Header = () => {
+export const Header = ({ api }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { lang, setLang } = useLanguage();
@@ -38,7 +38,7 @@ export const Header = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:6060/api/products");
+        const { data } = await axios.get(api + "/products");
         setProducts(data);
       } catch (err) {
         console.error("Failed to fetch products", err);
@@ -144,18 +144,21 @@ export const Header = () => {
           {menuState.isOpenSearch && searchInput && (
             <ul className="search_results">
               {filteredProducts.length > 0 ? (
-                filteredProducts.map(({ id, image_url, name_en }) => (
-                  <li
-                    className="search_result"
-                    key={id}
-                    onClick={() => {
-                      handleNavigate(`/product/${id}`);
-                    }}
-                  >
-                    <img src={image_url} alt={name_en} />
-                    <h6>{name_en}</h6>
-                  </li>
-                ))
+                filteredProducts.map(
+                  ({ id, image_url, name_en, part_number }) => (
+                    <li
+                      className="search_result"
+                      key={id}
+                      onClick={() => {
+                        handleNavigate(`/product/${id}`);
+                      }}
+                    >
+                      <img src={image_url} alt={name_en} /> <h6>{name_en}</h6>
+                      <br />
+                      <h6>{part_number}</h6>
+                    </li>
+                  )
+                )
               ) : (
                 <li className="no_products">
                   {lang === "en" ? "No products found" : "Нет таких продуктов"}

@@ -57,7 +57,25 @@ export const PopularProducts = ({ api }) => {
               <p className="price">
                 {product.price.toLocaleString()} <span>uzs</span>
               </p>
-              <p className="products_name">{product.name_en}</p>
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 10
+              }}>
+                <p
+                  className="products_name"
+                  style={
+                    lang === "ru"
+                      ? { fontFamily: "Onest" }
+                      : { fontFamily: "Archivo" }
+                  }
+                >
+                  {lang === "en" ? product.name_en : product.name_ru}
+                </p>
+                  <p>
+                    {product.part_number}
+                  </p>
+              </div>
               <button
                 onClick={() => handleClick(product.id)}
                 style={
