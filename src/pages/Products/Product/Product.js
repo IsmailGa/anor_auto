@@ -6,7 +6,7 @@ import { ArrowLeftW } from "../../../components/Icons/Icons";
 import Modal from "../../../components/PhoneModal/Modal";
 import { useLanguage } from "../../LanguageContext";
 
-function Product({api}) {
+function Product({ api }) {
   const [isShow, setIsShow] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -33,10 +33,18 @@ function Product({api}) {
   }
 
   const productName = lang === "en" ? product.name_en : product.name_ru;
-  const productDescription = lang === "en" ? product.description_en : product.description_ru;
-  const statusText = lang === "en"
-    ? product.status ? "In Stock" : "Out of Stock"
-    : product.status ? "В наличии" : "Не в наличии";
+  const productDescription =
+    lang === "en" ? product.description_en : product.description_ru;
+  const statusText =
+    lang === "en"
+      ? product.status
+        ? "In Stock"
+        : "Out of Stock"
+      : product.status
+      ? "В наличии"
+      : "Не в наличии";
+  const productWeight = lang === "en" ? "Weight" : "Вес";
+  const productSize = lang === "en" ? "Size" : "Размер";
 
   return (
     <div className="product">
@@ -49,9 +57,20 @@ function Product({api}) {
           <img src={product.image_url} alt="product" />
           <div className="product_info">
             <h1 style={titleStyle}>{productName}</h1>
-            <div className={product.status ? "status" : "status non-status"} style={titleStyle}>
+            <div
+              className={product.status ? "status" : "status non-status"}
+              style={titleStyle}
+            >
               {statusText}
             </div>
+
+            <p style={titleStyle}>{product.part_number}</p>
+            <p style={titleStyle}>
+              {productWeight} : {product.weight} kg
+            </p>
+            <p style={titleStyle}>
+              {productSize} : {product.size} mm
+            </p>
             <p style={titleStyle}>{productDescription}</p>
           </div>
           <div className="product_price">
