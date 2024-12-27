@@ -215,13 +215,14 @@ function AdminPanel({ token, api }) {
 
             <label htmlFor="name_en">
               Информация на Английском{" "}
-              <input
+              <textarea
                 id="description_en"
                 type="text"
                 name="description_en"
                 value={newProduct.description_en}
                 onChange={handleInputChange}
-              />
+                autocapitalize
+              ></textarea>
             </label>
 
             <label>
@@ -237,13 +238,15 @@ function AdminPanel({ token, api }) {
 
             <label htmlFor="name_en">
               Информация на Русском{" "}
-              <input
+              <textarea
                 id="description_ru"
                 type="text"
                 name="description_ru"
                 value={newProduct.description_ru}
                 onChange={handleInputChange}
-              />
+                autocapitalize
+                
+              ></textarea>
             </label>
 
             <label>

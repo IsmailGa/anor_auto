@@ -85,6 +85,17 @@
     color: #000;
 }
 
+.admin_form textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+}
+
 .stock_check {
     display: block;
     position: relative;
